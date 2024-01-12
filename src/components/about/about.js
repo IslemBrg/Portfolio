@@ -33,6 +33,13 @@ function About() {
               <br />
               <br />
               {aboutData.description2}
+              <br/>
+              <br/>
+              {aboutData.description3}
+              <br/>
+              <br/>
+              <br/>
+              <br/>
             </p>
           </div>
           <div className={styles.aboutAnimation}>
