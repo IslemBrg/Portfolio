@@ -24,7 +24,14 @@ function ThemeContextProvider(props) {
     }
   };
 
-  const value = { theme, drawerOpen, setHandleDrawer, changeTheme, isDark };
+  const colors = {
+    primary: "#1D9BF0",
+    secondary: "#000000",
+    tertiary: "#FFFFFF",
+    quaternary: "#000000",
+  };
+
+  const value = { theme, drawerOpen, setHandleDrawer, changeTheme, isDark, colors };
   return (
     <ThemeContext.Provider value={value}>
       {props.children}

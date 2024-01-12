@@ -22,7 +22,7 @@ import { toast } from "react-toastify";
 function Contacts() {
   const form = useRef();
 
-  const { theme, isDark } = useContext(ThemeContext);
+  const { theme, isDark, colors } = useContext(ThemeContext);
 
   const textFieldStyles = {
     "& .MuiOutlinedInput-input": {
@@ -79,7 +79,10 @@ function Contacts() {
   useEffect(() => {
     if (state.errors) {
       state.errors.getAllFieldErrors().forEach((error) => {
-        setErrors((prev) => ({ ...prev, [error[0]]: error?.[1]?.[0]?.message }));
+        setErrors((prev) => ({
+          ...prev,
+          [error[0]]: error?.[1]?.[0]?.message,
+        }));
       });
       toast.update(toastId, {
         render:
@@ -105,7 +108,6 @@ function Contacts() {
       });
     }
   }, [state.succeeded]);
-  
 
   return (
     <div
@@ -117,7 +119,13 @@ function Contacts() {
         <h1 style={{ color: theme.primary }}>Contacts</h1>
         <div className={styles.contactsBody}>
           <div className={styles.contactsForm}>
-            <form ref={form} onSubmit={handleSubmit} onChange={()=>{setErrors({name:null,email:null,message:null})}}>
+            <form
+              ref={form}
+              onSubmit={handleSubmit}
+              onChange={() => {
+                setErrors({ name: null, email: null, message: null });
+              }}
+            >
               <div className={styles.inputContainer}>
                 <TextField
                   id="name"
@@ -174,7 +182,9 @@ function Contacts() {
                     <CircularProgress size={24} />
                   ) : (
                     <>
-                      <p>{!state.succeeded ? "Send" : "Sent"}</p>
+                      <p style={{ color: "black" }}>
+                        {!state.succeeded ? "Send" : "Sent"}
+                      </p>
                       <div className={styles.submitIcon}>
                         <AiOutlineSend
                           className={styles.sendIcon}
@@ -184,6 +194,7 @@ function Contacts() {
                               : "fly 0.8s linear both",
                             position: state.succeeded ? "absolute" : "initial",
                             display: state.succeeded ? "none" : "inline-flex",
+                            color: "black",
                           }}
                         />
                         <AiOutlineCheckCircle
@@ -191,6 +202,7 @@ function Contacts() {
                           style={{
                             display: !state.succeeded ? "none" : "inline-flex",
                             opacity: !state.succeeded ? "0" : "1",
+                            color: "black",
                           }}
                         />
                       </div>
@@ -213,6 +225,12 @@ function Contacts() {
                             ease-in-out text-[#15202B] bg-[#8B98A5]
                              hover:bg-[#1D9BF0] hover:scale-[1.1] 
                              shrink delay-200"
+                style={{
+                  backgroundColor: isDark ? colors.primary : "white",
+                  border: "1px solid",
+                  borderColor: colors.primary,
+                  color: isDark ? "black" : colors.primary,
+                }}
               >
                 <FiAtSign />
               </div>
@@ -229,6 +247,12 @@ function Contacts() {
                             ease-in-out text-[#15202B] bg-[#8B98A5]
                              hover:bg-[#1D9BF0] hover:scale-[1.1] 
                              shrink delay-200"
+                style={{
+                  backgroundColor: isDark ? colors.primary : "white",
+                  border: "1px solid",
+                  borderColor: colors.primary,
+                  color: isDark ? "black" : colors.primary,
+                }}
               >
                 <FiPhone />
               </div>
@@ -242,6 +266,12 @@ function Contacts() {
                              ease-in-out text-[#15202B] bg-[#8B98A5]
                               hover:bg-[#1D9BF0] hover:scale-[1.1]
                                shrink delay-200"
+                style={{
+                  backgroundColor: isDark ? colors.primary : "white",
+                  border: "1px solid",
+                  borderColor: colors.primary,
+                  color: isDark ? "black" : colors.primary,
+                }}
               >
                 <HiOutlineLocationMarker />
               </div>
@@ -264,29 +294,29 @@ function Contacts() {
                 </a>
               )}
               {socialsData.github && (
-                <a
-                  href={socialsData.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-[45px] h-[45px] 
-                                    rounded-[50%] flex items-center justify-center
-                                     text-xl transition ease-in-out text-[#15202B]
-                                      bg-[#8B98A5] hover:bg-[#1D9BF0]"
-                >
-                  <FaGithub aria-label="GitHub" />
+                <a href={socialsData.github} target="_blank" rel="noreferrer">
+                  <FaGithub
+                    className={styles.landingSocial}
+                    style={{
+                      color: theme.primary,
+                      width: "45px",
+                      height: "45px",
+                    }}
+                    aria-label="GitHub"
+                  />
                 </a>
               )}
               {socialsData.linkedIn && (
-                <a
-                  href={socialsData.linkedIn}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-[45px] h-[45px] rounded-[50%] flex 
-                                    items-center justify-center text-xl transition 
-                                    ease-in-out text-[#15202B] bg-[#8B98A5] 
-                                    hover:bg-[#1D9BF0]"
-                >
-                  <FaLinkedinIn aria-label="LinkedIn" />
+                <a href={socialsData.linkedIn} target="_blank" rel="noreferrer">
+                  <FaLinkedinIn
+                    aria-label="LinkedIn"
+                    className={styles.landingSocial}
+                    style={{
+                      color: theme.primary,
+                      width: "45px",
+                      height: "45px",
+                    }}
+                  />
                 </a>
               )}
 
@@ -322,12 +352,16 @@ function Contacts() {
                   href={socialsData.facebook}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-[45px] h-[45px] rounded-[50%] flex
-                                     items-center justify-center text-xl transition
-                                      ease-in-out text-[#15202B] bg-[#8B98A5]
-                                       hover:bg-[#1D9BF0]"
                 >
-                  <FaFacebook aria-label="facebook" />
+                  <FaFacebook
+                    aria-label="facebook"
+                    className={styles.landingSocial}
+                    style={{
+                      color: theme.primary,
+                      width: "45px",
+                      height: "45px",
+                    }}
+                  />
                 </a>
               )}
             </div>
