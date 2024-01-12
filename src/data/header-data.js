@@ -1,9 +1,11 @@
-
 export const headerData = {
-    name: 'ABU SAID',
-    title: "Hello! I am",
-    desciption: "Hello! I am ABU SAID, a professional and passionate programmer in my daily life. A quick learner with a self-learning attitude. I love to learn and explore new technologies and am Passionate about Problem Solving. ",
-    image: 'https://i.ibb.co/ZmdNH6x/abu-said.jpg',
-    imagebw: 'https://i.ibb.co/Cw2Xp90/abu-said-bw.jpg',
-    resumePdf: 'https://docs.google.com/document/d/1MkkoRX98FS47CaEyeodyPzi4OkW8SH7Gv55f4MQkHV8/'
-}
+  name: "Islem Bargaoui",
+  title: "Hello! I am",
+  desciption:
+    "Buckle up, web warriors ! I'm your friendly neighborhood full-stack dev by day, but by night, I'm a total tech playground explorer . From building web whizzes ✨ to diving into game galaxies ️ or mobile mazes , my code-fueled curiosity knows no bounds! New skills are my candy , and I adapt faster than a disco chameleon. Wanna join the tech safari? We'll push boundaries like it's our morning latte ☕️. Let's go!",
+  image: "/me.png",
+  imagebw: "/me.png",
+  resumePdf:
+    "https://docs.google.com/document/d/1MkkoRX98FS47CaEyeodyPzi4OkW8SH7Gv55f4MQkHV8/",
+  sig: "/Islem Sig.png",
+};
