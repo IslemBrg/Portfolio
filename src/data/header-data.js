@@ -6,6 +6,6 @@ export const headerData = {
   image: "/me.png",
   imagebw: "/me.png",
   resumePdf:
-    "https://docs.google.com/document/d/1MkkoRX98FS47CaEyeodyPzi4OkW8SH7Gv55f4MQkHV8/",
+    "",
   sig: "/Islem Sig.png",
 };
