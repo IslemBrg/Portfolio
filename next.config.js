@@ -3,6 +3,7 @@ dotenv.config();
 
 const nextConfig = {
   reactStrictMode: true, // enabled react-strict mode
+  swcMinify: false, // disable swcMinify to fix lottie loading on production
   env: {
     REACT_APP_YOUR_SERVICE_ID: process.env.REACT_APP_YOUR_SERVICE_ID,
     REACT_APP_YOUR_TEMPLATE_ID: process.env.REACT_APP_YOUR_TEMPLATE_ID,
