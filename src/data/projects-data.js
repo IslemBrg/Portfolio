@@ -13,7 +13,7 @@ export const projectsData = [
     projectName: "Tippjob",
     projectDesc:
       "This project is a job portal, where job seekers can search for jobs and apply for them.",
-    tags: ["Next js", "Next js", "Prisma ORM"],
+    tags: ["Next js", "Nest js", "Prisma ORM"],
     code: "",
     demo: "https://tippjob.com",
     image: "/tippjob.png",
@@ -23,19 +23,38 @@ export const projectsData = [
     projectName: "CMAT",
     projectDesc:
       "This is a cybersecurity consulting website for companies, providing security feedback based on assessments.",
-    tags: ["Next js", "Next js", "TypeORM"],
+    tags: ["Next js", "Nest js", "TypeORM"],
     code: "",
     demo: "https://csma-reloaded.ccdev.space",
     image: "/cmat.png",
   },
   {
     id: 3,
+    projectName: "SPF",
+    projectDesc:
+      "A solution facilitating senior citizens to match with retirement homes based on their needs.",
+    tags: ["Next js", "Nest js", "TypeORM"],
+    code: "",
+    demo: "https://seniorenplatzfinder.com",
+    image: "/spf.png",
+  },
+  {
+    id: 4,
     projectName: "PPC Software",
     projectDesc: "This is a software for managing PPC Belden's optic fiber lines.",
-    tags: ["Next js", "Web socket"],
+    tags: ["Next js", "Python"],
     code: "",
     demo: "",
     image: seven,
+  },
+  {
+    id: 5,
+    projectName: "Tekdheb",
+    projectDesc: "A project in progress, online multiplayer tunisian card game",
+    tags: ["Next js", "Nest JS", "Web Socket"],
+    code: "",
+    demo: "",
+    image: two,
   },
 ];
 
