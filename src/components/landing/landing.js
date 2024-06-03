@@ -131,6 +131,19 @@ function Landing() {
                   Contact
                 </button>
               </Link>
+              <button
+                onClick={() => {
+                  window.open("/resume.pdf", "_blank")
+                }}
+                className="sm:w-[180px] bg-[#8b98a5] 
+                                text-[#15202B] rounded-[30px] no-underline	
+                                w-36 text-base font-medium h-12 border-[3px]
+                                 border-[#8b98a5] transition duration-100 
+                                 ease-out hover:bg-[#1D9BF0] hover:text-[#15202B]
+                                  hover:border-[#1D9BF0] hidden sm:block "
+              >
+                My Resume
+              </button>
             </div>
           </div>
         </div>
