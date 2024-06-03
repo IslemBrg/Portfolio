@@ -57,7 +57,7 @@ function Contacts() {
   };
 
   const [toastId, setToastId] = useState(null);
-  const [state, handleSubmit] = useForm(process.env.CONTACT_FORM_ID);
+  const [state, handleSubmit] = useForm("mdoqkeyb");
   const [errors, setErrors] = useState({
     name: null,
     email: null,
@@ -182,7 +182,7 @@ function Contacts() {
                     <CircularProgress size={24} />
                   ) : (
                     <>
-                      <p style={{ color: "black" }}>
+                      <p style={{ color:  theme.type === "light" ? "white" : "black" }}>
                         {!state.succeeded ? "Send" : "Sent"}
                       </p>
                       <div className={styles.submitIcon}>
@@ -194,7 +194,7 @@ function Contacts() {
                               : "fly 0.8s linear both",
                             position: state.succeeded ? "absolute" : "initial",
                             display: state.succeeded ? "none" : "inline-flex",
-                            color: "black",
+                            color:  theme.type === "light" ? "white" : "black",
                           }}
                         />
                         <AiOutlineCheckCircle
