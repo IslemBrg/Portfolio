@@ -38,6 +38,7 @@
   border-radius: 20px;
   margin-bottom: 1.5rem;
   transition: background-color 200ms ease-in-out;
+  cursor: pointer;
 }
 
 .expcardImg {

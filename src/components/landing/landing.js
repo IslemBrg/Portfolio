@@ -133,7 +133,7 @@ function Landing() {
               </Link>
               <button
                 onClick={() => {
-                  window.open("/resume.pdf", "_blank")
+                  window.open("/IslemBrg.pdf", "_blank")
                 }}
                 className="sm:w-[180px] bg-[#8b98a5] 
                                 text-[#15202B] rounded-[30px] no-underline	
