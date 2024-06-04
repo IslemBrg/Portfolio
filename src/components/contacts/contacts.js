@@ -263,7 +263,7 @@ function Contacts() {
               <p style={{ color: theme.tertiary }}>{contactsData.phone}</p>
             </a>
             <a
-              href={`tel:${contactsData.addressGoogleLink}`}
+              href={contactsData.addressGoogleLink}
               target="_blank"
               className={styles.personalDetails}
             >
