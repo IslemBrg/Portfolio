@@ -182,7 +182,11 @@ function Contacts() {
                     <CircularProgress size={24} />
                   ) : (
                     <>
-                      <p style={{ color:  theme.type === "light" ? "white" : "black" }}>
+                      <p
+                        style={{
+                          color: theme.type === "light" ? "white" : "black",
+                        }}
+                      >
                         {!state.succeeded ? "Send" : "Sent"}
                       </p>
                       <div className={styles.submitIcon}>
@@ -194,7 +198,7 @@ function Contacts() {
                               : "fly 0.8s linear both",
                             position: state.succeeded ? "absolute" : "initial",
                             display: state.succeeded ? "none" : "inline-flex",
-                            color:  theme.type === "light" ? "white" : "black",
+                            color: theme.type === "light" ? "white" : "black",
                           }}
                         />
                         <AiOutlineCheckCircle
@@ -258,26 +262,31 @@ function Contacts() {
               </div>
               <p style={{ color: theme.tertiary }}>{contactsData.phone}</p>
             </a>
-            <div className={styles.personalDetails}>
-              <div
-                className="w-[45px] h-[45px]
+            <a
+              href={`tel:${contactsData.addressGoogleLink}`}
+              target="_blank"
+              className={styles.personalDetails}
+            >
+              <div className={styles.personalDetails}>
+                <div
+                  className="w-[45px] h-[45px]
                              rounded-[50%] flex items-center 
                              justify-center text-2xl transition 
                              ease-in-out text-[#15202B] bg-[#8B98A5]
                               hover:bg-[#1D9BF0] hover:scale-[1.1]
                                shrink delay-200"
-                style={{
-                  backgroundColor: isDark ? colors.primary : "white",
-                  border: "1px solid",
-                  borderColor: colors.primary,
-                  color: isDark ? "black" : colors.primary,
-                }}
-              >
-                <HiOutlineLocationMarker />
+                  style={{
+                    backgroundColor: isDark ? colors.primary : "white",
+                    border: "1px solid",
+                    borderColor: colors.primary,
+                    color: isDark ? "black" : colors.primary,
+                  }}
+                >
+                  <HiOutlineLocationMarker />
+                </div>
+                <p style={{ color: theme.tertiary }}>{contactsData.address}</p>
               </div>
-              <p style={{ color: theme.tertiary }}>{contactsData.address}</p>
-            </div>
-
+            </a>
             <div className={styles.socialmediaIcons}>
               {socialsData.twitter && (
                 <a
@@ -348,11 +357,7 @@ function Contacts() {
                 </a>
               )}
               {socialsData.facebook && (
-                <a
-                  href={socialsData.facebook}
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href={socialsData.facebook} target="_blank" rel="noreferrer">
                   <FaFacebook
                     aria-label="facebook"
                     className={styles.landingSocial}
