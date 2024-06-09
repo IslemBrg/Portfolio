@@ -61,7 +61,7 @@ function Navbar() {
             handleDrawerClose();
           }
         }}
-        anchor="left"
+        anchor="right"
         open={open}
         className={styles.drawer}
         classes={{
@@ -89,9 +89,9 @@ function Navbar() {
 
         <div onClick={handleDrawerClose}>
           <div className={styles.navLinkContainer}>
-            <Fade left>
+            <Fade right>
               <Link href="/">
-                <div className="my-[2em] mx-auto rounded-[78.8418px] text-[#1D9BF0] bg-[#15202B] sm:w-[85%] w-[100%] h-[55px] sm:h-[60px] flex items-center justify-evenly px-[25px] sm:px-[30px] box-border border-2 border-[#1D9BF0] hover:text-[#15202B] hover:bg-[#1D9BF0] transition-colors">
+                <div style={{backgroundColor: isDark? "#15202B" : "lightgray", }} className="my-[2em] mx-auto rounded-[78.8418px] text-[#1D9BF0] sm:w-[85%] w-[100%] h-[55px] sm:h-[60px] flex items-center justify-evenly px-[25px] sm:px-[30px] box-border border-2 border-[#1D9BF0] hover:bg-[#1D9BF0] transition-colors">
                   <IoHomeSharp className="text-xl sm:text-2xl" />
                   <span className="w-6/12 text-[1.125rem] sm:text-[1.3rem] font-semibold">
                     Home
@@ -100,9 +100,9 @@ function Navbar() {
               </Link>
             </Fade>
 
-            <Fade left>
+            <Fade right>
               <Link href="/#about">
-                <div className="my-[2em] mx-auto rounded-[78.8418px] text-[#1D9BF0] bg-[#15202B] sm:w-[85%] w-[100%] h-[55px] sm:h-[60px] flex items-center justify-evenly px-[25px] sm:px-[30px] box-border border-2 border-[#1D9BF0] hover:text-[#15202B] hover:bg-[#1D9BF0] transition-colors">
+                <div style={{backgroundColor: isDark? "#15202B" : "lightgray"}} className="my-[2em] mx-auto rounded-[78.8418px] text-[#1D9BF0] sm:w-[85%] w-[100%] h-[55px] sm:h-[60px] flex items-center justify-evenly px-[25px] sm:px-[30px] box-border border-2 border-[#1D9BF0] hover:bg-[#1D9BF0] transition-colors">
                   <FaUser className="text-xl sm:text-2xl" />
                   <span className="w-6/12 text-[1.125rem] sm:text-[1.3rem] font-semibold">
                     About
@@ -111,9 +111,14 @@ function Navbar() {
               </Link>
             </Fade>
 
-            <Fade left>
-              <Link href="/#resume">
-                <div className="my-[2em] mx-auto rounded-[78.8418px] text-[#1D9BF0] bg-[#15202B] sm:w-[85%] w-[100%] h-[55px] sm:h-[60px] flex items-center justify-evenly px-[25px] sm:px-[30px] box-border border-2 border-[#1D9BF0] hover:text-[#15202B] hover:bg-[#1D9BF0] transition-colors">
+            <Fade right>
+              <Link
+                href="#"
+                onClick={() => {
+                  window.open("/IslemBrg.pdf", "_blank");
+                }}
+              >
+                <div style={{backgroundColor: isDark? "#15202B" : "lightgray"}} className="my-[2em] mx-auto rounded-[78.8418px] text-[#1D9BF0] sm:w-[85%] w-[100%] h-[55px] sm:h-[60px] flex items-center justify-evenly px-[25px] sm:px-[30px] box-border border-2 border-[#1D9BF0] hover:bg-[#1D9BF0] transition-colors">
                   <HiDocumentText className="text-xl sm:text-2xl" />
                   <span className="w-6/12 text-[1.125rem] sm:text-[1.3rem] font-semibold">
                     Resume
@@ -122,9 +127,10 @@ function Navbar() {
               </Link>
             </Fade>
 
-            <Fade left>
+            <Fade right>
               <div
-                className="my-[2em] mx-auto rounded-[78.8418px] text-[#1D9BF0] bg-[#15202B] sm:w-[85%] w-[100%] h-[55px] sm:h-[60px] flex items-center justify-evenly px-[25px] sm:px-[30px] box-border border-2 border-[#1D9BF0] hover:text-[#15202B] hover:bg-[#1D9BF0] transition-colors"
+                style={{backgroundColor: isDark? "#15202B" : "lightgray"}}
+                className="my-[2em] mx-auto rounded-[78.8418px] text-[#1D9BF0] sm:w-[85%] w-[100%] h-[55px] sm:h-[60px] flex items-center justify-evenly px-[25px] sm:px-[30px] box-border border-2 border-[#1D9BF0] hover:bg-[#1D9BF0] transition-colors"
                 onClick={changeTheme}
               >
                 {isDark ? (
@@ -138,20 +144,11 @@ function Navbar() {
               </div>
             </Fade>
 
-            <Fade left>
-              <Link href="/#blog">
-                <div className="my-[2em] mx-auto rounded-[78.8418px] text-[#1D9BF0] bg-[#15202B] sm:w-[85%] w-[100%] h-[55px] sm:h-[60px] flex items-center justify-evenly px-[25px] sm:px-[30px] box-border border-2 border-[#1D9BF0] hover:text-[#15202B] hover:bg-[#1D9BF0] transition-colors">
-                  <FaFolderOpen className="text-xl sm:text-2xl" />
-                  <span className="w-6/12 text-[1.125rem] sm:text-[1.3rem] font-semibold">
-                    Blog
-                  </span>
-                </div>
-              </Link>
-            </Fade>
+           
 
-            <Fade left>
+            <Fade right>
               <Link href="/#contacts">
-                <div className="my-[2em] mx-auto rounded-[78.8418px] text-[#1D9BF0] bg-[#15202B] sm:w-[85%] w-[100%] h-[55px] sm:h-[60px] flex items-center justify-evenly px-[25px] sm:px-[30px] box-border border-2 border-[#1D9BF0] hover:text-[#15202B] hover:bg-[#1D9BF0] transition-colors">
+                <div style={{backgroundColor: isDark? "#15202B" : "lightgray"}} className="my-[2em] mx-auto rounded-[78.8418px] text-[#1D9BF0] sm:w-[85%] w-[100%] h-[55px] sm:h-[60px] flex items-center justify-evenly px-[25px] sm:px-[30px] box-border border-2 border-[#1D9BF0] hover:bg-[#1D9BF0] transition-colors">
                   <MdPhone className="text-xl sm:text-2xl" />
                   <span className="w-6/12 text-[1.125rem] sm:text-[1.3rem] font-semibold">
                     Contact

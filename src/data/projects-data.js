@@ -33,7 +33,7 @@ export const projectsData = [
     projectName: "SPF",
     projectDesc:
       "A solution facilitating senior citizens to match with retirement homes based on their needs.",
-    tags: ["Next js", "Nest js", "TypeORM"],
+    tags: ["Next js", "Nest js", "White Label Solution", "State Machine"],
     code: "",
     demo: "https://seniorenplatzfinder.com",
     image: "/spf.png",
