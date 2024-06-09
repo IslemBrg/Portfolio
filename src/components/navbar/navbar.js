@@ -1,5 +1,5 @@
 import Drawer from "@material-ui/core/Drawer";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 import { FaFolderOpen, FaUser } from "react-icons/fa";
@@ -27,24 +27,87 @@ function Navbar() {
     setHandleDrawer();
   };
 
-  const shortname = (name) => {
-    if (name.length > 12) {
-      return name.split(" ")[0];
-    } else {
-      return name;
+  const [counter, setCounter] = useState(0);
+  const [catVisible, setCatVisible] = useState(false);
+
+  const maxCounter = 5;
+
+  useEffect(() => {
+    if (counter >= maxCounter) {
+      setCounter(0);
+      setCatVisible(true);
+      const onekoScript = document.createElement("script");
+      onekoScript.type = "module";
+      onekoScript.src = "oneko.js";
+      document.body.appendChild(onekoScript);
+      console.log("Oh would you look at that, you just found Stammtish =3 !");
     }
-  };
+  }, [counter]);
 
   return (
     <div className={styles.navbar}>
       <div className={styles.navbarContainer}>
         <Image
+          onClick={() => {
+            setCounter(counter + 1);
+          }}
           alt="My name"
           src={headerData.sig}
           width={250}
           height={200}
-          style={{ filter: isDark ? "invert(100%)" : "invert(0%)" }}
+          style={{
+            filter: isDark ? "invert(100%)" : "invert(0%)",
+            cursor: "pointer",
+          }}
         />
+        {counter < maxCounter && counter > 0 && !catVisible ? (
+          <div
+            style={{
+              marginRight: "auto",
+              marginLeft: "10px",
+              color: isDark ? "white" : "black",
+              width: "fit-content",
+            }}
+          >
+            <div class="flex items-start gap-2.5">
+              <div class="flex flex-col gap-1 w-full max-w-[320px]">
+                <div
+                  class="flex flex-col leading-1.5 p-4 border-gray-200 rounded-e-xl rounded-es-xl"
+                  style={{
+                    borderRadius: "0px 50px 50px 50px",
+                    backgroundColor: isDark ? "#15202B" : "lightgray",
+                  }}
+                >
+                  <p
+                    class="text-sm font-normal"
+                    style={{ color: isDark ? "white" : "black" }}
+                  >
+                    😺 clicks left : {maxCounter - counter}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          !catVisible && (
+            <div
+              style={{
+                marginRight: "auto",
+                  marginLeft: "20px",
+                marginTop:"90px",
+                color: isDark ? "white" : "black",
+                width: "fit-content",
+              }}
+            >
+              <Image
+                alt="My name"
+                src={isDark ? "/click-white.png" : "/click-black.png"}
+                width={100}
+                height={50}
+              />
+            </div>
+          )
+        )}
 
         <IoMenuSharp
           className={`text-3xl md:text-4xl text-[${theme.tertiary}] cursor-pointer translate-y-3 xs:text-2xl transition-colors hover:text-[${theme.primary}] `}
@@ -91,7 +154,10 @@ function Navbar() {
           <div className={styles.navLinkContainer}>
             <Fade right>
               <Link href="/">
-                <div style={{backgroundColor: isDark? "#15202B" : "lightgray", }} className="my-[2em] mx-auto rounded-[78.8418px] text-[#1D9BF0] sm:w-[85%] w-[100%] h-[55px] sm:h-[60px] flex items-center justify-evenly px-[25px] sm:px-[30px] box-border border-2 border-[#1D9BF0] hover:bg-[#1D9BF0] transition-colors">
+                <div
+                  style={{ backgroundColor: isDark ? "#15202B" : "lightgray" }}
+                  className="my-[2em] mx-auto rounded-[78.8418px] text-[#1D9BF0] sm:w-[85%] w-[100%] h-[55px] sm:h-[60px] flex items-center justify-evenly px-[25px] sm:px-[30px] box-border border-2 border-[#1D9BF0] hover:bg-[#1D9BF0] transition-colors"
+                >
                   <IoHomeSharp className="text-xl sm:text-2xl" />
                   <span className="w-6/12 text-[1.125rem] sm:text-[1.3rem] font-semibold">
                     Home
@@ -102,7 +168,10 @@ function Navbar() {
 
             <Fade right>
               <Link href="/#about">
-                <div style={{backgroundColor: isDark? "#15202B" : "lightgray"}} className="my-[2em] mx-auto rounded-[78.8418px] text-[#1D9BF0] sm:w-[85%] w-[100%] h-[55px] sm:h-[60px] flex items-center justify-evenly px-[25px] sm:px-[30px] box-border border-2 border-[#1D9BF0] hover:bg-[#1D9BF0] transition-colors">
+                <div
+                  style={{ backgroundColor: isDark ? "#15202B" : "lightgray" }}
+                  className="my-[2em] mx-auto rounded-[78.8418px] text-[#1D9BF0] sm:w-[85%] w-[100%] h-[55px] sm:h-[60px] flex items-center justify-evenly px-[25px] sm:px-[30px] box-border border-2 border-[#1D9BF0] hover:bg-[#1D9BF0] transition-colors"
+                >
                   <FaUser className="text-xl sm:text-2xl" />
                   <span className="w-6/12 text-[1.125rem] sm:text-[1.3rem] font-semibold">
                     About
@@ -118,7 +187,10 @@ function Navbar() {
                   window.open("/IslemBrg.pdf", "_blank");
                 }}
               >
-                <div style={{backgroundColor: isDark? "#15202B" : "lightgray"}} className="my-[2em] mx-auto rounded-[78.8418px] text-[#1D9BF0] sm:w-[85%] w-[100%] h-[55px] sm:h-[60px] flex items-center justify-evenly px-[25px] sm:px-[30px] box-border border-2 border-[#1D9BF0] hover:bg-[#1D9BF0] transition-colors">
+                <div
+                  style={{ backgroundColor: isDark ? "#15202B" : "lightgray" }}
+                  className="my-[2em] mx-auto rounded-[78.8418px] text-[#1D9BF0] sm:w-[85%] w-[100%] h-[55px] sm:h-[60px] flex items-center justify-evenly px-[25px] sm:px-[30px] box-border border-2 border-[#1D9BF0] hover:bg-[#1D9BF0] transition-colors"
+                >
                   <HiDocumentText className="text-xl sm:text-2xl" />
                   <span className="w-6/12 text-[1.125rem] sm:text-[1.3rem] font-semibold">
                     Resume
@@ -129,7 +201,7 @@ function Navbar() {
 
             <Fade right>
               <div
-                style={{backgroundColor: isDark? "#15202B" : "lightgray"}}
+                style={{ backgroundColor: isDark ? "#15202B" : "lightgray" }}
                 className="my-[2em] mx-auto rounded-[78.8418px] text-[#1D9BF0] sm:w-[85%] w-[100%] h-[55px] sm:h-[60px] flex items-center justify-evenly px-[25px] sm:px-[30px] box-border border-2 border-[#1D9BF0] hover:bg-[#1D9BF0] transition-colors"
                 onClick={changeTheme}
               >
@@ -144,11 +216,12 @@ function Navbar() {
               </div>
             </Fade>
 
-           
-
             <Fade right>
               <Link href="/#contacts">
-                <div style={{backgroundColor: isDark? "#15202B" : "lightgray"}} className="my-[2em] mx-auto rounded-[78.8418px] text-[#1D9BF0] sm:w-[85%] w-[100%] h-[55px] sm:h-[60px] flex items-center justify-evenly px-[25px] sm:px-[30px] box-border border-2 border-[#1D9BF0] hover:bg-[#1D9BF0] transition-colors">
+                <div
+                  style={{ backgroundColor: isDark ? "#15202B" : "lightgray" }}
+                  className="my-[2em] mx-auto rounded-[78.8418px] text-[#1D9BF0] sm:w-[85%] w-[100%] h-[55px] sm:h-[60px] flex items-center justify-evenly px-[25px] sm:px-[30px] box-border border-2 border-[#1D9BF0] hover:bg-[#1D9BF0] transition-colors"
+                >
                   <MdPhone className="text-xl sm:text-2xl" />
                   <span className="w-6/12 text-[1.125rem] sm:text-[1.3rem] font-semibold">
                     Contact
