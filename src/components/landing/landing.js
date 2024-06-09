@@ -69,7 +69,6 @@ function Landing() {
           height={350}
           className={styles.landingImg}
           style={{
-            opacity: `${drawerOpen ? "0" : "1"}`,
             borderColor: theme.primary,
           }}
         />
